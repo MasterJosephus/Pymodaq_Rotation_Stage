@@ -23,7 +23,7 @@ pymodaq is at `daq_move_plugins/daq_move_RotStage.py`.
 ## Qmini RGBLasersystems Fiber Spectrometer
 
 To interface the qmini rgblasersystems USB mini spectrometer we had to download the SDK here: "https://docs.broadcom.com/docs/12398530" 
-We then copied the provided `RgbDriverKit.dll` to the `hardware` directory within the pymodaq plugin. In addition the dowload of the `Waves` software form the provider is required to operate the spectrometer. This software can be dowloaded free of charge from the proveder webiste following the link: "https://docs.broadcom.com/docs/12398529".
+We then copied the provided `RgbDriverKit.dll` to the `hardware` directory within the pymodaq plugin. In addition the dowload of the `Waves` software form the provider is required to operate the spectrometer. This software can be dowloaded free of charge from the provider website following the link: "https://docs.broadcom.com/docs/12398529".
 
 The SDK exposes the spectrometer API through a .NET assembly (`RgbDriverKit.dll`). A .NET assembly is a compiled software library containing reusable classes and methods that can be called from any .NET-compatible language such as C#, MATLAB, or Python.
 
