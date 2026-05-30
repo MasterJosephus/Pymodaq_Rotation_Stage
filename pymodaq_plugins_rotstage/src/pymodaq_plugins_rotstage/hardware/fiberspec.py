@@ -33,23 +33,23 @@ class QminiSpectrometer:
             devices = RgbDriverKit.Qstick.SearchDevices()
 
         if devices.Length == 0:
-            raise Exception("No spectrometer found")
+            print("No spectrometer found")
+            return False
 
         self.spectrometer = devices[0]
 
         print("Initializing spectrometer...")
         self.spectrometer.Open()
 
-        self.wavelengths = np.array(
-            list(self.spectrometer.GetWavelengths()),
-            dtype=np.float64
-        )
-
         print("Connected")
         print("Device:", self.spectrometer.DetailedDeviceName)
         print("Model:", self.spectrometer.ModelName)
         print("Serial:", self.spectrometer.SerialNo)
         print("Pixels:", self.spectrometer.PixelCount)
+        return True
+    
+    def get_wavelengths(self):
+        return np.array(list(self.spectrometer.GetWavelengths()), dtype=np.float64)
 
     def set_exposure(self, exposure_seconds):
         self.spectrometer.ExposureTime = float(exposure_seconds)
@@ -80,8 +80,11 @@ class QminiSpectrometer:
             dtype=np.float32
         )
 
-        return self.wavelengths, intensities
-
+        return intensities
+    
+    def stop_exposure(self):
+        return True
+    
     def enable_sensitivity_calibration(self, enable=True):
 
         if hasattr(self.spectrometer, "UseSensitivityCalibration"):
@@ -109,9 +112,10 @@ if __name__ == "__main__":
 
         spec.enable_sensitivity_calibration(False)
 
-        spec.set_exposure(1.0)
+        spec.set_exposure(0.1)
 
-        wavelengths, intensities = spec.get_spectrum()
+        wavelengths = spec.get_wavelengths()
+        intensities = spec.get_spectrum()
 
         plt.plot(wavelengths, intensities)
         plt.xlabel("Wavelength (nm)")
