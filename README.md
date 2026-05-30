@@ -31,4 +31,6 @@ To access the DLL methods from Python, we translated the vendor-provided MATLAB 
 
 `pip install pythonnet`
 
-`pythonnet` provides interoperability between Python and the Microsoft .NET runtime, allowing Python code to directly load .NET assemblies and call their classes and methods.
+`pythonnet` provides interoperability between Python and the Microsoft .NET runtime, allowing Python code to directly load .NET assemblies and call their classes and methods. Using AI we have translated the vendor provided MATLAB example into python.
+
+The code to interface the the QminiSpectrometer is located at `scr/hardware/fiberspec.py` and its implementation in pymodaq is at `daq_viewer_plugins/plugins_1D/daq_1Dviwer_FiberSpec.py`.
