@@ -34,7 +34,7 @@ class DAQ_Move_RotStage(DAQ_Move_base):
     is_multiaxes = False  # TODO for your plugin set to True if this plugin is controlled for a multiaxis controller
     _axis_names: Union[List[str], Dict[str, int]] = ['']
     _controller_units: Union[str, List[str]] = '°' 
-    _epsilon: Union[float, List[float]] = 0.01  
+    _epsilon: Union[float, List[float]] = 0.1  
     data_actuator_type = DataActuatorType.DataActuator 
     params = [] + comon_parameters_fun(is_multiaxes, axis_names=_axis_names, epsilon=_epsilon)
 

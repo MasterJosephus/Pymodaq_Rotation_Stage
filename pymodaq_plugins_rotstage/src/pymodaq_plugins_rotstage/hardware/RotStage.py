@@ -29,7 +29,7 @@ class RotStage:
         
     def move_to_absolute_position(self, position):
         # Move device to the home position
-        self.move_home()
+        # self.move_home()
         # Movements are in real units appropriate for the device (degrees, mm).
         self.stage.move_absolute(position)     
         self.stage.wait()   
